@@ -1,0 +1,63 @@
+{
+  "communication_config": {
+    "host": "10.10.173.75",
+    "port": 9001,
+    "protobuf_file_path": "source/proto/view.proto",
+    "topics": [
+      "no_ground_cloud",
+      "boundingbox"
+    ]
+  },
+  "nav": {
+    "logo_img_path": "./source/imgs/logo.png",
+    "navbar_brand": "HirainITD",
+    "navbar_sub_brand": "JING TANG 105",
+    "button_groups": [
+      {
+        "button_name": "Display",
+        "dropdown_menu": [
+          {
+            "item_name": "axes",
+            "check": "axes_check"
+          },
+          {
+            "item_name": "grid",
+            "check": "grid_check"
+          },
+          {
+            "item_name": "map",
+            "check": "map_check"
+          }
+        ]
+      }
+    ]
+  },
+  "view": {
+    "detections": {
+      "path": "source/yamls/detection.yaml",
+      "elements": [
+        {
+          "key": "axes",
+          "name": [
+            "axes"
+          ],
+          "check": "axes_check"
+        },
+        {
+          "key": "grid",
+          "name": [
+            "grid"
+          ],
+          "check": "grid_check"
+        },
+        {
+          "key": "map",
+          "name": [
+            "map"
+          ],
+          "check": "map_check"
+        }
+      ]
+    }
+  }
+}

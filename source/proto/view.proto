@@ -1,0 +1,241 @@
+syntax="proto3";
+option cc_enable_arenas = true;
+package itd.communication.protobuf;
+
+message Header {
+  uint32 seq = 1;
+  uint64 stamp = 2;
+  string frame_id = 3;
+}
+
+message Bool {
+  bool data = 1;
+}
+
+message Bytes {
+  bytes data = 1;
+}
+
+message String {
+  string data = 1;
+}
+
+message Int32 {
+  sint32 data = 1;
+}
+
+message Int32Array {
+  repeated sint32 data = 1;
+}
+
+message Uint32 {
+  uint32 data = 1;
+}
+
+message Uint32Array {
+  repeated uint32 data = 1;
+}
+
+message Int64 {
+  sint64 data = 1;
+}
+
+message Int64Array {
+  repeated sint64 data = 1;
+}
+
+message Uint64 {
+  uint64 data = 1;
+}
+
+message Uint64Array {
+  repeated uint64 data = 1;
+}
+
+message Float32 {
+  float data = 1;
+}
+
+message Float32Array {
+  repeated float data = 1;
+}
+
+message Float64 {
+  double data = 1;
+}
+
+message Float64Array {
+  repeated double data = 1;
+}
+
+message Geometry {
+  int32 count = 1;
+  repeated float x = 2;
+  repeated float y = 3;
+  repeated float z = 4;
+}
+
+message Point {
+  Header header = 1;
+  float x = 2;
+  float y = 3;
+  float z = 4;
+}
+
+message Points {
+  Header header = 1;
+  Geometry geometry = 2;
+}
+
+message Line {
+  Header header = 1;
+  Geometry geometry = 2;
+}
+
+message Lines {
+  Header header = 1;
+  int32 numberLines = 2;
+  repeated Line line = 3;
+}
+
+message Polygon {
+  Header header = 1;
+  Geometry geometry = 2;
+}
+
+message Polygons {
+  Header header = 1;
+  int32 numberPolygons = 2;
+  repeated Polygon polygon = 3;
+}
+
+message Pose {
+  Header header = 1;
+  float x = 2;
+  float y = 3;
+  float z = 4;
+  float roll = 5;
+  float pitch = 6;
+  float yaw = 7;
+  int32 id = 8;
+}
+
+message Poses {
+  Header header = 1;
+  int32 number = 2;
+  repeated float x = 3;
+  repeated float y = 4;
+  repeated float z = 5;
+  repeated float roll = 6;
+  repeated float pitch = 7;
+  repeated float yaw = 8;
+  repeated int32 id = 9;
+}
+
+message BoundingBox {
+  Header header = 1;
+  float x = 2;
+  float y = 3;
+  float z = 4;
+  float roll = 5;
+  float pitch = 6;
+  float yaw = 7;
+  float l = 8;
+  float w = 9;
+  float h = 10;
+  int32 id = 11;
+  float dataReserver1 = 12;
+  float dataReserver2 = 13;
+}
+
+message BoundingBoxes {
+  Header header = 1;
+  int32 number = 2;
+  repeated float x = 3;
+  repeated float y = 4;
+  repeated float z = 5;
+  repeated float roll = 6;
+  repeated float pitch = 7;
+  repeated float yaw = 8;
+  repeated float l = 9;
+  repeated float w = 10;
+  repeated float h = 11;
+  repeated int32 id = 12;
+  repeated float dataReserver1 = 13;
+  repeated float dataReserver2 = 14;
+}
+
+message PointCloud {
+  Header header = 1;
+  uint32 height = 2;
+  uint32 width = 3;
+  repeated float x = 4;
+  repeated float y = 5;
+  repeated float z = 6;
+  repeated float intensity = 7;
+  repeated float ring = 8;
+  repeated float azimuth = 9;
+  repeated float hor = 10;
+  repeated float time_offset = 11;
+  repeated float distance = 12;
+}
+
+message Freespace {
+  Header header = 1;
+  repeated float distance = 2;
+}
+
+message Gps84 {
+  Header header = 1;
+  string message_id = 2;
+  double latitude = 3;
+  double longitude = 4;
+  double altitude = 5;
+  float speed = 6;
+  double utc_sec = 7;
+}
+
+message CanSignal {
+  Header header = 1;
+  uint64 id = 2;
+  uint32 nb_signal = 3;
+  repeated double signal = 4;
+}
+
+message MessageSensor {
+  enum MessageType {
+    Point = 0;
+    Points = 1;
+    Line = 2;
+    Lines = 3;
+    Polygon = 4;
+    Polygons = 5;
+    Pose = 6;
+    Poses = 7;
+    BoundingBox = 8;
+    BoundingBoxes = 9;
+    PointCloud = 10;
+    Freespace = 11;
+    Gps84 = 12;
+    CanSignal = 13;
+  }
+
+  MessageType type = 14;
+  oneof msg {
+    Point point = 15;
+    Points points = 16;
+    Line line = 17;
+    Lines lines = 18;
+    Polygon polygon = 19;
+    Polygons polygons = 20;
+    Pose pose = 21;
+    Poses poses = 22;
+    BoundingBox boundingbox = 23;
+    BoundingBoxes boundingboxes = 24;
+    PointCloud cloud = 25;
+    Freespace fs = 26;
+    Gps84 gps84 = 27;
+    CanSignal can_signal= 28;
+  }
+}
+
