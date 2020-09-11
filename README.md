@@ -4,8 +4,9 @@
 | Name | Github | Email Address |
 | ------- | ------ |   ----   |
 | Feng DING  | [FengD](https://github.com/FengD) | dingbobby@hotmail.com|
-| Bo WANG  |  | |
-| Jiafeng XU  |  | |
+| Jiafeng XU  | [BertLi238](https://github.com/BertLi238) | |
+| Bo WANG  | [1436085923](https://github.com/1436085923)  | 1436085923@qq.com|
+
 
 ## Description
 - This tool is used to display the status of an autonomous driving car, including its position, sensor output, hdmap, can signal, etc.
