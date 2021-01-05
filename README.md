@@ -80,7 +80,7 @@
 
 - Polygon demo
 
-![Polygon_demo](images/polygon_demo.mp4.gif)
+![Polygon_demo](images/polygone_demo.mp4.gif)
 
 - Pose demo
 
